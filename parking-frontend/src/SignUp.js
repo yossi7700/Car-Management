@@ -20,7 +20,6 @@ const SignUp = () => {
       setMessage('Failed to submit sign-up request.');
     }
   };
-  
 
   return (
     <div>
