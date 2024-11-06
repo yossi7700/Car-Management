@@ -11,6 +11,16 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  role: { // Add the role field
+    type: String,
+    required: true,
+    default: 'user', // Default role can be 'user'
+  },
+  approved: { // Add the approved field
+    type: Boolean,
+    required: true,
+    default: false, // Default is not approved
+  },
 });
 
 // Hash password before saving

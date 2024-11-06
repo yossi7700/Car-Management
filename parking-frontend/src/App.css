@@ -1,0 +1,21 @@
+/* App.css */
+nav {
+    margin: 10px 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav li {
+    cursor: pointer;
+    display: inline;
+    margin-right: 15px;
+    color: blue;
+  }
+  
+  nav li:hover {
+    text-decoration: underline;
+  }
+  

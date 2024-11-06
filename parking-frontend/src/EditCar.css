@@ -1,0 +1,55 @@
+/* Center the Edit Car page */
+.edit-car-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    padding-top: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Form container */
+  .edit-car-form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form input fields */
+  .edit-car-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Submit button */
+  .edit-car-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-car-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Error message */
+  .edit-car-error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
