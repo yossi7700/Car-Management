@@ -184,7 +184,6 @@ const User = require('./models/User'); // Make sure the path is correct
 
 // Secret key for JWT
 
-// Route to register a new user
 // Route to handle sign-up requests
 app.post('/request-signup', async (req, res) => {
   const { username, password } = req.body;
@@ -198,19 +197,17 @@ app.post('/request-signup', async (req, res) => {
       return res.status(400).json({ message: 'Username already exists' });
     }
 
-    // Store the request in a pending state (you might want a separate model for this)
-    const newUserRequest = new User({ username, password, approved: false }); // Add an 'approved' field
+    const newUserRequest = new User({ username, password, approved: false });
     await newUserRequest.save();
 
-    // Notify the super admin here (could be an email or another method)
     console.log(`New sign-up request for ${username} has been received.`);
-
     res.status(201).json({ message: 'Sign-up request submitted, awaiting approval.' });
   } catch (error) {
     console.error("Error saving sign-up request:", error);
     res.status(500).json({ message: 'Server error', error });
   }
 });
+
 
 // Route to fetch pending sign-up requests
 app.get('/signup-requests', authenticateToken, async (req, res) => {
