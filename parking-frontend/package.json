@@ -2,7 +2,7 @@
   "name": "parking-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yossi7700.github.io/Car-Management",
+  "homepage": "https://yossi7700.github.io/Parking-Management/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
