@@ -7,9 +7,16 @@ const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
 app.use(cors());
+const multer = require('multer');
+const { recognizePlate } = require('./controllers/plateRecognition');
+const upload = multer({ dest: 'uploads/' }); // Temporary storage for uploaded files
 
+app.post('/api/plate-recognition', upload.single('image'), recognizePlate);
 
-
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 // Middleware to parse JSON
 app.use(express.json());
 
