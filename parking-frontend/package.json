@@ -2,7 +2,6 @@
   "name": "parking-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yossi7700.github.io/Parking-Management/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -17,11 +16,12 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
+    "start": "REACT_APP_API_URL=http://localhost:5001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://yossi7700.github.io/Car-Management",
   "eslintConfig": {
     "extends": [
       "react-app",
