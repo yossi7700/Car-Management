@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import api from './api'; // Your Axios instance
-import { useNavigate } from 'react-router-dom'; // For navigation
+//import { useNavigate } from 'react-router-dom'; // For navigation
+
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
