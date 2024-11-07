@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Car-Management/static/css/main.95050e13.css",
-    "main.js": "/Car-Management/static/js/main.ef7faaaf.js",
+    "main.js": "/Car-Management/static/js/main.9e68155f.js",
     "static/media/coverPhoto.png": "/Car-Management/static/media/coverPhoto.36ee608ce44bfb31c8ec.png",
     "static/media/logo.png": "/Car-Management/static/media/logo.f53cfdee1429af120b28.png",
     "index.html": "/Car-Management/index.html",
     "main.95050e13.css.map": "/Car-Management/static/css/main.95050e13.css.map",
-    "main.ef7faaaf.js.map": "/Car-Management/static/js/main.ef7faaaf.js.map"
+    "main.9e68155f.js.map": "/Car-Management/static/js/main.9e68155f.js.map"
   },
   "entrypoints": [
     "static/css/main.95050e13.css",
-    "static/js/main.ef7faaaf.js"
+    "static/js/main.9e68155f.js"
   ]
 }
