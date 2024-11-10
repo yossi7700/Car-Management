@@ -1,65 +1,93 @@
+
+/* Original styles retained */
+
 /* Center the entire layout */
 .cover-photo {
-    width: 100%;
-    height: 300px;
-    border-radius: 8px;
-  }
-  
-  .logo {
-    width: 75px; /* Adjust the size as needed */
-    height: auto;
-    margin-top: -50px; /* Position logo over the cover photo */
-    z-index: 10;
-    position: relative;
-  }
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+}
+
+.logo {
+  width: 75px; /* Adjust the size as needed */
+  height: auto;
+  margin-top: -50px; /* Position logo over the cover photo */
+  z-index: 10;
+  position: relative;
+}
 
 .layout-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation styles */
+.nav-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.nav-list-item {
+  padding: 10px 15px;
+  background-color: #808000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nav-button {
+  padding: 10px 15px;
+  background-color: #808000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: #0056b3;
+}
+
+/* Main content area */
+.content-container {
+  flex: 1;
+  width: 100%;
+}
+
+/* Updated and responsive styles */
+
+/* AppBar logo for Material-UI */
+.logo-appbar {
+  width: 40px;
+  height: auto;
+  margin-left: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .cover-photo {
+      height: 200px;
   }
-  
-  /* Navigation styles */
+
+  .logo-appbar {
+      width: 30px;
+  }
+
+  .logo {
+      width: 50px;
+  }
+
   .nav-container {
-    margin-bottom: 20px;
-    text-align: center;
+      display: none; /* Navigation will use Drawer on small screens */
   }
-  
-  .nav-list {
-    list-style-type: none;
-    padding: 0;
-    display: inline-block;
-    text-align: left;
-  }
-  
-  .nav-list-item {
-    padding: 10px 15px;
-    padding: 10px 15px;
-    background-color: #808000;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .nav-button {
-    padding: 10px 15px;
-    background-color: #808000;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .nav-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Main content area */
-  .content-container {
-    flex: 1;
-    width: 100%;
-  }
-  
-  
+}

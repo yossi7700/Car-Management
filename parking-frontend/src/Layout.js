@@ -1,77 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import logo from './assets/logo.png'; // Update the path as necessary
-import coverPhoto from './assets/coverPhoto.png'; // Update the path as necessary
-import './Layout.css'; // Import the CSS file
+import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemText, Typography } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import logo from './assets/logo.png';
+import coverPhoto from './assets/coverPhoto.png';
+import './Layout.css';
 
 function Layout() {
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Clear the token from local storage
-    localStorage.removeItem('role'); // Clear the user role if stored
-    navigate('/'); // Redirect to the home page
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    navigate('/');
   };
 
-  // Check if user is authenticated
   const isAuthenticated = !!localStorage.getItem('token');
-  const userRole = localStorage.getItem('role'); // Retrieve user role
+  const userRole = localStorage.getItem('role');
+
+  const menuItems = [
+    { text: 'Search Car', action: () => navigate('/') },
+    isAuthenticated && { text: 'Add Car', action: () => navigate('/add-car') },
+    isAuthenticated && { text: 'List of All Cars', action: () => navigate('/car-list') },
+    isAuthenticated && userRole === 'superadmin' && { text: 'Super Admin Dashboard', action: () => navigate('/superadmin') },
+    isAuthenticated && { text: 'Logout', action: handleLogout },
+    !isAuthenticated && { text: 'Login', action: () => navigate('/login') },
+    !isAuthenticated && { text: 'Sign Up', action: () => navigate('/register') },
+  ].filter(Boolean); // Remove null/undefined items
 
   return (
     <div className="layout-container">
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" style={{ flexGrow: 1 }}>
+            Parking Management
+          </Typography>
+          <img src={logo} alt="Logo" className="logo-appbar" />
+        </Toolbar>
+      </AppBar>
+
+      <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+  <List>
+    {menuItems.map((item, index) => (
+      <ListItem 
+        button 
+        key={index} 
+        onClick={() => {
+          item.action();
+          setDrawerOpen(false); // Close the drawer after selecting an item
+        }}
+      >
+        <ListItemText primary={item.text} />
+      </ListItem>
+    ))}
+  </List>
+</Drawer>
+
+
       <img src={coverPhoto} alt="Cover" className="cover-photo" />
-      <img src={logo} alt="Logo" className="logo" />
-      <nav className="nav-container">
-        <ul className="nav-list">
-          <li className="nav-list-item">
-            <button className="nav-button" onClick={() => navigate('/')}>
-              Search Car
-            </button>
-          </li>
-          {isAuthenticated && (
-            <>
-              <li className="nav-list-item">
-                <button className="nav-button" onClick={() => navigate('/add-car')}>
-                  Add Car
-                </button>
-              </li>
-              <li className="nav-list-item">
-                <button className="nav-button" onClick={() => navigate('/car-list')}>
-                  List of All Cars
-                </button>
-              </li>
-              {userRole === 'superadmin' && ( // Show only for superadmins
-                <li className="nav-list-item">
-                  <button className="nav-button" onClick={() => navigate('/superadmin')}>
-                    Super Admin Dashboard
-                  </button>
-                </li>
-              )}
-              <li className="nav-list-item">
-                <button className="nav-button" onClick={handleLogout}>
-                  Logout
-                </button>
-              </li>
-            </>
-          )}
-          {!isAuthenticated && (
-            <>
-              <li className="nav-list-item">
-                <button className="nav-button" onClick={() => navigate('/login')}>
-                  Login
-                </button>
-              </li>
-              <li className="nav-list-item">
-                <button className="nav-button" onClick={() => navigate('/register')}>
-                  Sign Up
-                </button>
-              </li>
-            </>
-          )}
-        </ul>
-      </nav>
       <div className="content-container">
-        <Outlet /> {/* Renders the matching child route */}
+        <Outlet />
       </div>
     </div>
   );

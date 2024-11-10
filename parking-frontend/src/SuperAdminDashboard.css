@@ -1,191 +1,130 @@
-/* Super Admin Dashboard container */
+
 .superadmin-dashboard-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    min-height: 100vh;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Cover photo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cover-photo {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.logo-appbar {
+  width: 40px;
+  height: auto;
+  margin-left: 10px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.user-table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.user-table th,
+.user-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.user-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.row-white {
+  background-color: #fff;
+}
+
+.row-gray {
+  background-color: #f9f9f9;
+}
+
+.approve-button,
+.deny-button,
+.remove-button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.approve-button {
+  background-color: #28a745;
+}
+
+.approve-button:hover {
+  background-color: #218838;
+}
+
+.deny-button {
+  background-color: #ffc107;
+}
+
+.deny-button:hover {
+  background-color: #e0a800;
+}
+
+.remove-button {
+  background-color: #dc3545;
+}
+
+.remove-button:hover {
+  background-color: #c82333;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: red;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
   .cover-photo {
-    width: 100%;
-    height: 300px;
-    border-radius: 8px;
-    margin-bottom: 10px; /* Space between the cover photo and the logo */
+      height: 200px;
   }
-  
-  /* Logo positioned to the left */
-  .logo {
-    width: 75px; /* Adjust the size as needed */
-    height: auto;
-    margin-top: -50px; /* Position logo over the cover photo */
-    z-index: 10;
-    position: relative;
-    align-self: flex-start; /* Move the logo to the left */
-    margin-left: 20px; /* Add spacing from the left edge */
-  }
-  
-  /* Navigation styles */
-  .nav-container {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .nav-list {
-    list-style-type: none;
-    padding: 0;
-    display: inline-block;
-    text-align: left;
-  }
-  
-  .nav-list-item {
-    padding: 10px 15px;
-    background-color: #808000;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .nav-button {
-    padding: 10px 15px;
-    background-color: #808000;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .nav-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* User table */
-  .user-table {
-    width: 100%;
-    max-width: 800px;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
+
   .user-table th,
   .user-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
+      font-size: 12px;
+      padding: 8px;
   }
-  
-  .user-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  .row-white {
-    background-color: #fff;
-  }
-  
-  .row-gray {
-    background-color: #f9f9f9;
-  }
-  
-  /* Buttons for user actions */
+
   .approve-button,
   .deny-button,
   .remove-button {
-    padding: 5px 10px;
-    margin-right: 5px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
+      font-size: 12px;
+      padding: 4px 8px;
   }
-  
-  .approve-button {
-    background-color: #28a745;
-  }
-  
-  .approve-button:hover {
-    background-color: #218838;
-  }
-  
-  .deny-button {
-    background-color: #ffc107;
-  }
-  
-  .deny-button:hover {
-    background-color: #e0a800;
-  }
-  
-  .remove-button {
-    background-color: #dc3545;
-  }
-  
-  .remove-button:hover {
-    background-color: #c82333;
-  }
-  
-  /* Error message */
-  .error-message {
-    color: red;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-  
-  /* Status colors */
-.status-active {
-    color: green;
-    font-weight: bold;
-  }
-  
-  .status-inactive {
-    color: red;
-    font-weight: bold;
-  }
-  
-/* Cursor pointer for sortable columns with spacing for arrows */
-.user-table th {
-    cursor: pointer;
-    text-align: left;
-    padding-right: 10px;
-  }
-  
-  /* Arrow styling */
-  .user-table th span {
-    margin-left: 5px;
-    font-size: 12px;
-    color: #555;
-  }
-  
-  /* Role dropdown container */
-.role-dropdown-container {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-  }
-  
-  /* Styled role dropdown */
-  .role-dropdown {
-    padding: 8px;
-    width: 100%;
-    max-width: 200px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #333;
-    cursor: pointer;
-  }
-  
-  .role-dropdown:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  .role-dropdown:hover {
-    border-color: #0056b3;
-  }
-  
+}

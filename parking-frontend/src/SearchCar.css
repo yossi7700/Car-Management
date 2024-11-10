@@ -1,158 +1,103 @@
+
 .search-car-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .search-car-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-appbar {
+  width: 40px;
+  height: auto;
+  margin-left: 10px;
+}
+
+.cover-photo {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.search-car-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #808000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.results-container,
+.entered-cars-table {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.car-details-table,
+.entered-cars-table {
+  border-collapse: collapse;
+}
+
+.car-details-table th,
+.car-details-table td,
+.entered-cars-table th,
+.entered-cars-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.car-details-table th,
+.entered-cars-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
   .cover-photo {
-    width: 100%;
-    height: 300px;
-    border-radius: 8px;
+      height: 200px;
   }
-  
-  .logo {
-    width: 75px; /* Adjust the size as needed */
-    height: auto;
-    margin-top: -50px; /* Position logo over the cover photo */
-    z-index: 10;
-    position: relative;
-  }
-  
-  .search-car-nav {
-    margin-bottom: 20px;
-  }
-  
-  .search-car-nav ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-  }
-  
-  .search-car-nav li {
-    display: inline;
-    margin: 0 10px;
+
+  input {
+      width: 100%;
+      margin-bottom: 10px;
   }
 
   .search-bar {
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center the items horizontally */
-    margin-bottom: 20px; /* Add some spacing below */
-}
+      flex-direction: column;
+  }
 
-.menu {
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center the items horizontally */
-  margin-bottom: 20px; /* Add some spacing below */
-}
-  
-  input {
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
   button {
-    padding: 10px 15px;
-    background-color: #808000;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+      width: 100%;
   }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  .error {
-    color: red;
-    margin-top: 10px;
-  }
-  
-  .entered-cars-list {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .entered-cars-list li {
-    padding: 10px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
-  .entered-cars-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .entered-cars-table th,
-  .entered-cars-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .entered-cars-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  .row-white {
-    background-color: #fff;
-  }
-  
-  .row-gray {
-    background-color: #f9f9f9;
-  }
-  
-  .car-details-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .car-details-table th,
-  .car-details-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .car-details-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  .row-white {
-    background-color: #fff;
-  }
-  
-  .row-gray {
-    background-color: #f9f9f9;
-  }
-  
-  .car-details-table button {
-    margin-right: 5px;
-    padding: 5px 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .car-details-table button:hover {
-    background-color: #0056b3;
-  }
-  
+}

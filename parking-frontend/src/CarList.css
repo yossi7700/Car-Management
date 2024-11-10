@@ -1,80 +1,67 @@
-
+/* Container styling */
 .car-list-container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  box-sizing: border-box;
-}
-
-.error-message {
-  color: red;
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-
-.car-list-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-}
-
-.car-card {
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 15px;
-  width: 100%;
-  max-width: 300px;
-  box-sizing: border-box;
-}
-
-.car-card p {
-  margin: 5px 0;
-  font-size: 14px;
-}
-
-.card-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.edit-button,
-.delete-button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: white;
-  font-size: 14px;
-}
-
-.edit-button {
-  background-color: #007bff;
-}
-
-.edit-button:hover {
-  background-color: #0056b3;
-}
-
-.delete-button {
-  background-color: #dc3545;
-}
-
-.delete-button:hover {
-  background-color: #a71d2a;
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .car-card {
-      font-size: 12px;
-      padding: 10px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
   }
-
+  
+  /* Error message */
+  .error-message {
+    color: red;
+    margin-bottom: 15px;
+  }
+  
+  /* Table styling */
+  .car-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .car-list-table th,
+  .car-list-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .car-list-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .row-white {
+    background-color: #fff;
+  }
+  
+  .row-gray {
+    background-color: #f9f9f9;
+  }
+  
+  /* Action buttons */
   .edit-button,
   .delete-button {
-      font-size: 12px;
-      padding: 6px 10px;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
   }
-}
+  
+  .edit-button {
+    background-color: #007bff;
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+  }
+  
+  .delete-button:hover {
+    background-color: #a71d2a;
+  }
+  
