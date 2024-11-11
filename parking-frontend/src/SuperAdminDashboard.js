@@ -17,7 +17,6 @@ import './SuperAdminDashboard.css'; // Import the CSS file
 import logo from './assets/logo.png'; // Update the path as necessary
 import coverPhoto from './assets/coverPhoto.png'; // Update the path as necessary
 
-
 const SuperAdminDashboard = () => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState('');
