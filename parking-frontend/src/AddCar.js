@@ -20,10 +20,9 @@ function AddCar() {
         setError('No authentication token found.');
         return;
       }
-      const formatedExpiryDate = expiryDate ? new Date(expiryDate) :null;
       const response = await api.post(
         '/add-car',
-        { carNumber, ownerName, carType, additionalInfo, phoneNumber,expiryDate: formatedExpiryDate },
+        { carNumber, ownerName, carType, additionalInfo, phoneNumber,expiryDate },
         {
           headers: { Authorization: `Bearer ${token}` }, // Include the token in the request
         }
@@ -93,7 +92,7 @@ function AddCar() {
           required
         />
         <input
-          type="date"
+          type="text"
           placeholder="Expiry Date"
           className="add-car-input"
           value={expiryDate}

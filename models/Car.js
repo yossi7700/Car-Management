@@ -24,7 +24,7 @@ const carSchema = new mongoose.Schema({
   },
  
   expiryDate:{
-    type:Date
+    type: String
   },
   entryLogs: {
     type: [Date],
@@ -36,4 +36,4 @@ const carSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Cars', carSchema);
+module.exports = mongoose.model('Car', carSchema);

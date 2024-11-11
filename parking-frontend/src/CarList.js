@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import api from './api'; // Your Axios instance
 import { useNavigate } from 'react-router-dom'; // For navigation
@@ -58,22 +57,31 @@ function CarList() {
     <div className="car-list-container">
       <h2>List of All Cars</h2>
       {error && <p className="error-message">{error}</p>} {/* Display error message if present */}
-      <div className="car-list-cards">
-        {cars.map((car, index) => (
-          <div key={car.carNumber} className="car-card">
-            <p><strong>Car Number:</strong> {car.carNumber}</p>
-            <p><strong>Owner Name:</strong> {car.ownerName}</p>
-            <div className="card-actions">
-              <button className="edit-button" onClick={() => handleEdit(car)}>
-                Edit
-              </button>
-              <button className="delete-button" onClick={() => handleDelete(car.carNumber)}>
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+      <table className="car-list-table">
+        <thead>
+          <tr>
+            <th>Car Number</th>
+            <th>Owner Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cars.map((car, index) => (
+            <tr key={car.carNumber} className={index % 2 === 0 ? 'row-white' : 'row-gray'}>
+              <td>{car.carNumber}</td>
+              <td>{car.ownerName}</td>
+              <td>
+                <button className="edit-button" onClick={() => handleEdit(car)}>
+                  Edit
+                </button>
+                <button className="delete-button" onClick={() => handleDelete(car.carNumber)}>
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

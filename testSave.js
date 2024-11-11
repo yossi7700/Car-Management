@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Car = require('./models/Car'); // Adjust the path if needed
 
 // Connect to MongoDB
-const dbURI = 'mongodb+srv://yosinotik:1r9X17BJxUZLCJwl@cluster0.ctfxc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://yosinotik:1r9X17BJxUZLCJwl@cluster0.ctfxc.mongodb.net/Car-Management?retryWrites=true&w=majority';
 mongoose.connect(dbURI)
   .then(() => {
     console.log('Connected to MongoDB');
