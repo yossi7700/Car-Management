@@ -46,6 +46,7 @@ function AddCar() {
         setError('Failed to add car due to network error');
       }
     }
+    console.log('Expiry Date:',expiryDate);
   };
 
   return (
