@@ -20,9 +20,10 @@ function AddCar() {
         setError('No authentication token found.');
         return;
       }
+      const formatedExpiryDate = expiryDate ? new Date(expiryDate) :null;
       const response = await api.post(
         '/add-car',
-        { carNumber, ownerName, carType, additionalInfo, phoneNumber,expiryDate },
+        { carNumber, ownerName, carType, additionalInfo, phoneNumber,expiryDate: formatedExpiryDate },
         {
           headers: { Authorization: `Bearer ${token}` }, // Include the token in the request
         }
@@ -46,7 +47,7 @@ function AddCar() {
         setError('Failed to add car due to network error');
       }
     }
-    console.log('Expiry Date:',expiryDate);
+    console.log('Expiry Date:',new Date(expiryDate));
   };
 
   return (
@@ -92,12 +93,10 @@ function AddCar() {
           required
         />
         <input
-          type="text"
+          type="date"
           placeholder="Expiry Date"
           className="add-car-input"
           value={expiryDate}
-          onFocus={(e) => (e.target.type = "date")}
-          onBlur={(e) => (e.target.type = "text")}
           onChange={(e) => setExpiryDate(e.target.value)}
         />
         <button type="submit" className="add-car-button">

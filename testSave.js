@@ -14,8 +14,7 @@ mongoose.connect(dbURI)
       carType: 'Toyota Corolla',
       additionalInfo: 'Some extra notes',
       phoneNumber: '123-456-7890',
-      approvalStatus: 'Approved',
-      permission: true,
+      expiryDate: '',
     });
 
     // Save the car

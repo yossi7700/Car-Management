@@ -70,8 +70,7 @@ app.post('/add-car', authenticateToken, async (req, res) => {
       carType,
       additionalInfo: additionalInfo || '',
       phoneNumber,
-      expiryDate: new Date(expiryDate),
-      
+      expiryDate: expiryDate ? new Date(expiryDate): null,
     });
     await newCar.save();
     res.status(201).json({ message: 'Car added successfully', car: newCar });

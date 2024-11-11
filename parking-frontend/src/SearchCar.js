@@ -168,7 +168,7 @@ const SearchCar = () => {
                   <td>{car.additionalInfo}</td>
                   <td>{car.phoneNumber}</td>
                   <td>
-                    <button className="log-entry-button" onClick={() => handleLogEntry(car.carNumber)}>Log Entry</button>
+                    <button className="log-entry-button"  onClick={() => handleLogEntry(car.carNumber)}>Log Entry</button>
                     <button className="log-exit-button" onClick={() => handleLogExit(car.carNumber)}>Log Exit</button>
                   </td>
                 </tr>
