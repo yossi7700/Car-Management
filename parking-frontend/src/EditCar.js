@@ -56,10 +56,20 @@ const EditCar = () => {
     }
   };
 
+  const backToCarListAction = {
+    action: () => navigate('/car-list'), // Define the action to navigate
+  };
   return (
+    
     <div className="edit-car-container">
       <h2>Edit Car</h2>
+      
       {error && <p className="edit-car-error">{error}</p>}
+      <button
+            type="button"
+            className="back-to-list-button"
+            onClick={backToCarListAction.action} // Use the action here
+          >Return To Car List</button>
       <form className="edit-car-form" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -97,6 +107,8 @@ const EditCar = () => {
           placeholder="Expiry Date"
           className="add-car-input"
           value={expiryDate}
+          onFocus={(e) => (e.target.type = "date")}
+          onBlur={(e) => (e.target.type = "text")}
           onChange={(e) => setExpiryDate(e.target.value)}
         />
         <button type="submit" className="edit-car-button">

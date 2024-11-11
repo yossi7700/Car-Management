@@ -146,37 +146,40 @@ const SearchCar = () => {
       </div>
       {error && <p className="error-message">{error}</p>}
       {carDetails.length > 0 && (
-        <div className="results-container">
-          <h3>Cars Found:</h3>
-          <table className="car-details-table">
-            <thead>
-              <tr>
-                <th>Car Number</th>
-                <th>Owner</th>
-                <th>Type</th>
-                <th>Additional Info</th>
-                <th>Phone Number</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {carDetails.map((car, index) => (
-                <tr key={car.carNumber} className={index % 2 === 0 ? 'row-white' : 'row-gray'}>
-                  <td>{car.carNumber}</td>
-                  <td>{car.ownerName}</td>
-                  <td>{car.carType}</td>
-                  <td>{car.additionalInfo}</td>
-                  <td>{car.phoneNumber}</td>
-                  <td>
-                    <button className="log-entry-button"  onClick={() => handleLogEntry(car.carNumber)}>Log Entry</button>
-                    <button className="log-exit-button" onClick={() => handleLogExit(car.carNumber)}>Log Exit</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+  <div className="results-container">
+    <h3>Cars Found:</h3>
+    <table className="car-details-table">
+      <thead>
+        <tr>
+          <th>Car Number</th>
+          <th>Owner</th>
+          <th>Type</th>
+          <th>Additional Info</th>
+          <th>Phone Number</th>
+          <th>Expiry Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {carDetails.map((car, index) => (
+          <tr key={car.carNumber} className={index % 2 === 0 ? 'row-white' : 'row-gray'}>
+            <td>{car.carNumber}</td>
+            <td>{car.ownerName}</td>
+            <td>{car.carType}</td>
+            <td>{car.additionalInfo}</td>
+            <td>{car.phoneNumber}</td>
+            <td>{car.isExpired ? 'Expired' : 'Valid'}</td>
+            <td>
+              <button className="log-entry-button" onClick={() => handleLogEntry(car.carNumber)}>Log Entry</button>
+              <button className="log-exit-button" onClick={() => handleLogExit(car.carNumber)}>Log Exit</button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}
+
 
       <h3>Cars Entered Today:</h3>
       {carsEnteredToday.length > 0 ? (
@@ -186,6 +189,7 @@ const SearchCar = () => {
               <th>Car Number</th>
               <th>Owner</th>
               <th>Phone Number</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -194,6 +198,10 @@ const SearchCar = () => {
                 <td>{car.carNumber}</td>
                 <td>{car.ownerName}</td>
                 <td>{car.phoneNumber}</td>
+                <td>
+                    <button className="log-entry-button"  onClick={() => handleLogEntry(car.carNumber)}>Log Entry</button>
+                    <button className="log-exit-button" onClick={() => handleLogExit(car.carNumber)}>Log Exit</button>
+                  </td>
               </tr>
             ))}
           </tbody>

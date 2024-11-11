@@ -95,6 +95,8 @@ function AddCar() {
           placeholder="Expiry Date"
           className="add-car-input"
           value={expiryDate}
+          onFocus={(e) => (e.target.type = "date")}
+          onBlur={(e) => (e.target.type = "text")}
           onChange={(e) => setExpiryDate(e.target.value)}
         />
         <button type="submit" className="add-car-button">

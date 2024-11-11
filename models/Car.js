@@ -24,7 +24,7 @@ const carSchema = new mongoose.Schema({
   },
  
   expiryDate:{
-    type: [Date]
+    type: Date
   },
   entryLogs: {
     type: [Date],
