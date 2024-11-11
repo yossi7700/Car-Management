@@ -62,6 +62,7 @@ function CarList() {
           <tr>
             <th>Car Number</th>
             <th>Owner Name</th>
+            <th>Expiry Date</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -70,6 +71,7 @@ function CarList() {
             <tr key={car.carNumber} className={index % 2 === 0 ? 'row-white' : 'row-gray'}>
               <td>{car.carNumber}</td>
               <td>{car.ownerName}</td>
+              <td>{car.expiryDate}</td>
               <td>
                 <button className="edit-button" onClick={() => handleEdit(car)}>
                   Edit

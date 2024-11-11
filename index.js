@@ -7,16 +7,9 @@ const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
 app.use(cors());
-const multer = require('multer');
-const { recognizePlate } = require('./controllers/plateRecognition');
-const upload = multer({ dest: 'uploads/' }); // Temporary storage for uploaded files
 
-app.post('/api/plate-recognition', upload.single('image'), recognizePlate);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
 // Middleware to parse JSON
 app.use(express.json());
 
@@ -61,8 +54,7 @@ app.post('/add-car', authenticateToken, async (req, res) => {
     carType,
     additionalInfo,
     phoneNumber,
-    approvalStatus,
-    permission
+    expiryDate
   } = req.body;
 
   // Input validation
@@ -78,8 +70,8 @@ app.post('/add-car', authenticateToken, async (req, res) => {
       carType,
       additionalInfo: additionalInfo || '',
       phoneNumber,
-      approvalStatus: approvalStatus || 'Pending',
-      permission: permission || false,
+      expiryDate: new Date(expiryDate),
+      
     });
     await newCar.save();
     res.status(201).json({ message: 'Car added successfully', car: newCar });
@@ -318,7 +310,7 @@ app.post('/login', async (req, res) => {
 
 app.put('/edit-car/:carNumber', authenticateToken, async (req, res) => {
   const { carNumber } = req.params;
-  const { ownerName, carType, additionalInfo, phoneNumber } = req.body;
+  const { ownerName, carType, additionalInfo, phoneNumber,expiryDate} = req.body;
 
   try {
     const car = await Car.findOneAndUpdate(

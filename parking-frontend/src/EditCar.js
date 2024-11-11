@@ -9,6 +9,7 @@ const EditCar = () => {
   const [carType, setCarType] = useState('');
   const [additionalInfo, setAdditionalInfo] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [expiryDate, setExpiryDate] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,6 +22,7 @@ const EditCar = () => {
       setCarType(car.carType);
       setAdditionalInfo(car.additionalInfo);
       setPhoneNumber(car.phoneNumber);
+      setExpiryDate(car.expiryDate);
     }
   }, [location.state]);
 
@@ -41,6 +43,7 @@ const EditCar = () => {
           carType,
           additionalInfo,
           phoneNumber,
+          expiryDate,
         },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -87,6 +90,16 @@ const EditCar = () => {
           onChange={(e) => setPhoneNumber(e.target.value)}
           placeholder="Phone Number"
           className="edit-car-input"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Expiry Date"
+          className="add-car-input"
+          value={expiryDate}
+          onChange={(e) => setExpiryDate(e.target.value)}
+          onFocus={(e) => (e.target.type = "date")}
+          onBlur={(e) => (e.target.type = "text")}
           required
         />
         <button type="submit" className="edit-car-button">

@@ -8,7 +8,9 @@ function AddCar() {
   const [carType, setCarType] = useState('');
   const [additionalInfo, setAdditionalInfo] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [expiryDate, setExpiryDate] = useState('');
   const [error, setError] = useState('');
+
 
   const handleAddCar = async (e) => {
     e.preventDefault();
@@ -20,7 +22,7 @@ function AddCar() {
       }
       const response = await api.post(
         '/add-car',
-        { carNumber, ownerName, carType, additionalInfo, phoneNumber },
+        { carNumber, ownerName, carType, additionalInfo, phoneNumber,expiryDate },
         {
           headers: { Authorization: `Bearer ${token}` }, // Include the token in the request
         }
@@ -32,6 +34,7 @@ function AddCar() {
       setCarType('');
       setAdditionalInfo('');
       setPhoneNumber('');
+      setExpiryDate('')
       setError(''); // Clear any previous errors
     } catch (error) {
       // Handle specific error messages from the server
@@ -86,6 +89,15 @@ function AddCar() {
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
           required
+        />
+        <input
+          type="text"
+          placeholder="Expiry Date"
+          className="add-car-input"
+          value={expiryDate}
+          onFocus={(e) => (e.target.type = "date")}
+          onBlur={(e) => (e.target.type = "text")}
+          onChange={(e) => setExpiryDate(e.target.value)}
         />
         <button type="submit" className="add-car-button">
           Add Car

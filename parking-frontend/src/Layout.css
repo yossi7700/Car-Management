@@ -1,93 +1,44 @@
-
-/* Original styles retained */
-
-/* Center the entire layout */
-.cover-photo {
+/* Full top section with cover photo as background */
+.top-section {
   width: 100%;
-  height: 300px;
-  border-radius: 8px;
+  height: 200px; /* Adjust height as needed */
+  background-image: url('./assets/coverPhoto.png'); /* Cover photo as background */
+  background-size: cover; /* Ensure the image covers the container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Avoid tiling the image */
+  position: relative; /* Position for overlaying elements */
 }
 
-.logo {
-  width: 75px; /* Adjust the size as needed */
-  height: auto;
-  margin-top: -50px; /* Position logo over the cover photo */
-  z-index: 10;
-  position: relative;
+/* AppBar styled to blend into the top section */
+.AppBar {
+  background: transparent !important; /* Ensure no background color */
+  box-shadow: none; /* Remove shadow for a cleaner look */
+  position: absolute; /* Place AppBar over the background image */
+  height: 200px;
+  top: 0;
+  z-index: 1; /* Ensure AppBar stays above the background */
+  color: white; /* Ensure text and icons are visible */
 }
 
-.layout-container {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Navigation styles */
-.nav-container {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.nav-list {
-  list-style-type: none;
-  padding: 0;
-  display: inline-block;
-  text-align: left;
-}
-
-.nav-list-item {
-  padding: 10px 15px;
-  background-color: #808000;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.nav-button {
-  padding: 10px 15px;
-  background-color: #808000;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.nav-button:hover {
-  background-color: #0056b3;
-}
-
-/* Main content area */
-.content-container {
-  flex: 1;
-  width: 100%;
-}
-
-/* Updated and responsive styles */
-
-/* AppBar logo for Material-UI */
+/* AppBar logo adjustments */
 .logo-appbar {
   width: 40px;
   height: auto;
   margin-left: 10px;
 }
 
+/* Drawer styles */
+.MuiDrawer-paper {
+  width: 250px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
-  .cover-photo {
-      height: 200px;
+  .top-section {
+    height: 200px; /* Smaller height on mobile */
   }
 
   .logo-appbar {
-      width: 30px;
-  }
-
-  .logo {
-      width: 50px;
-  }
-
-  .nav-container {
-      display: none; /* Navigation will use Drawer on small screens */
+    width: 30px;
   }
 }

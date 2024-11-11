@@ -22,14 +22,9 @@ const carSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  approvalStatus: {
-    type: String,
-    enum: ['Approved', 'Pending', 'Denied'],
-    default: 'Pending',
-  },
-  permission: {
-    type: Boolean,
-    default: false,
+ 
+  expiryDate:{
+    type:Date
   },
   entryLogs: {
     type: [Date],

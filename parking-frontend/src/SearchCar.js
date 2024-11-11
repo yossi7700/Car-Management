@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import api from './api'; // Your Axios instance
 import { useNavigate } from 'react-router-dom'; // For navigation
@@ -14,7 +13,6 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from './assets/logo.png'; // Update the path as necessary
-import coverPhoto from './assets/coverPhoto.png'; // Update the path as necessary
 import './SearchCar.css'; // Custom CSS for styling
 
 const SearchCar = () => {
@@ -97,19 +95,23 @@ const SearchCar = () => {
   ].filter(Boolean);
 
   return (
-    <div className="search-car-container">
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Parking Management
-          </Typography>
-          <img src={logo} alt="Logo" className="logo-appbar" />
-        </Toolbar>
-      </AppBar>
+    <div className="layout-container">
+      {/* Top Section with Cover Photo */}
+      <div className="top-section">
+        <AppBar position="static" className="AppBar">
+          <Toolbar style={{ width: '100%' }}>
+            <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" style={{ flexGrow: 1 }}>
+              Parking Management
+            </Typography>
+            <img src={logo} alt="Logo" className="logo-appbar" />
+          </Toolbar>
+        </AppBar>
+      </div>
 
+      {/* Drawer for navigation */}
       <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <List>
           {menuItems.map((item, index) => (
@@ -127,8 +129,6 @@ const SearchCar = () => {
         </List>
       </Drawer>
 
-      <img src={coverPhoto} alt="Cover" className="cover-photo" />
-
       <div className="search-car-header">
         <h2>Search for a Car</h2>
       </div>
@@ -140,7 +140,7 @@ const SearchCar = () => {
           onChange={(e) => setCarNumber(e.target.value)}
           placeholder="Enter car number (at least 5 digits)"
         />
-        <button onClick={handleSearch} className="search-button">
+        <button onClick={handleSearch} className="button">
           Search
         </button>
       </div>
@@ -168,8 +168,8 @@ const SearchCar = () => {
                   <td>{car.additionalInfo}</td>
                   <td>{car.phoneNumber}</td>
                   <td>
-                    <button onClick={() => handleLogEntry(car.carNumber)}>Log Entry</button>
-                    <button onClick={() => handleLogExit(car.carNumber)}>Log Exit</button>
+                    <button className="log-entry-button" onClick={() => handleLogEntry(car.carNumber)}>Log Entry</button>
+                    <button className="log-exit-button" onClick={() => handleLogExit(car.carNumber)}>Log Exit</button>
                   </td>
                 </tr>
               ))}

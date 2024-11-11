@@ -3,7 +3,6 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemText, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from './assets/logo.png';
-import coverPhoto from './assets/coverPhoto.png';
 import './Layout.css';
 
 function Layout() {
@@ -27,41 +26,44 @@ function Layout() {
     isAuthenticated && { text: 'Logout', action: handleLogout },
     !isAuthenticated && { text: 'Login', action: () => navigate('/login') },
     !isAuthenticated && { text: 'Sign Up', action: () => navigate('/register') },
-  ].filter(Boolean); // Remove null/undefined items
+  ].filter(Boolean);
 
   return (
     <div className="layout-container">
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Parking Management
-          </Typography>
-          <img src={logo} alt="Logo" className="logo-appbar" />
-        </Toolbar>
-      </AppBar>
+      {/* Top Section with Cover Photo */}
+      <div className="top-section">
+        <AppBar position="static" className="AppBar">
+          <Toolbar style={{ width: '100%' }}>
+            <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" style={{ flexGrow: 1 }}>
+              Parking Management
+            </Typography>
+            <img src={logo} alt="Logo" className="logo-appbar" />
+          </Toolbar>
+        </AppBar>
+      </div>
 
+      {/* Drawer for navigation */}
       <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-  <List>
-    {menuItems.map((item, index) => (
-      <ListItem 
-        button 
-        key={index} 
-        onClick={() => {
-          item.action();
-          setDrawerOpen(false); // Close the drawer after selecting an item
-        }}
-      >
-        <ListItemText primary={item.text} />
-      </ListItem>
-    ))}
-  </List>
-</Drawer>
+        <List>
+          {menuItems.map((item, index) => (
+            <ListItem
+              button
+              key={index}
+              onClick={() => {
+                item.action();
+                setDrawerOpen(false);
+              }}
+            >
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
 
-
-      <img src={coverPhoto} alt="Cover" className="cover-photo" />
+      {/* Main Content */}
       <div className="content-container">
         <Outlet />
       </div>
