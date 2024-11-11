@@ -98,9 +98,6 @@ const EditCar = () => {
           className="add-car-input"
           value={expiryDate}
           onChange={(e) => setExpiryDate(e.target.value)}
-          onFocus={(e) => (e.target.type = "date")}
-          onBlur={(e) => (e.target.type = "text")}
-          required
         />
         <button type="submit" className="edit-car-button">
           Update Car
