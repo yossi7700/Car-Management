@@ -28,4 +28,5 @@ mongoose.connect('mongodb+srv://yosinotik:1r9X17BJxUZLCJwl@cluster0.ctfxc.mongod
 .then(() => {
     changeUserRole('yosinotik@gmail.com', 'superadmin'); // Change username and role as needed
 })
+
 .catch(err => console.error('MongoDB connection error:', err));
