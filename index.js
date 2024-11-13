@@ -115,16 +115,19 @@ app.delete('/remove-car/:carNumber', authenticateToken, async (req, res) => {
 });
 
 // Route to search for a car by the first 5 digits of the car number
-const today = new Date();
-today.setHours(0, 0, 0, 0); // Normalize to midnight UTC
+app.get('/search-car/:carNumber', async (req, res) => {
+  const { carNumber } = req.params;
 
-const carsWithExpiryStatus = cars.map((car) => {
-  const carExpiryDate = car.expiryDate ? new Date(car.expiryDate) : null;
-  const isExpired = carExpiryDate ? carExpiryDate.getTime() < today.getTime() : true;
-  return {
-    ...car._doc,
-    isExpired,
-  };
+  try {
+    // Find cars whose carNumber starts with the input
+    const cars = await Car.find({ carNumber: { $regex: `^${carNumber}`, $options: 'i' } }); // Regex for matching
+    if (cars.length === 0) {
+      return res.status(404).json({ message: 'No cars found' });
+    }
+    res.status(200).json({ message: 'Cars found', cars }); // Return all matching cars
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error });
+  }
 });
 
 app.get('/car-list', authenticateToken, async (req, res) => {
