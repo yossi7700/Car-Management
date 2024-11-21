@@ -33,6 +33,7 @@
   top: 0;
   z-index: 1; /* Ensure AppBar stays above the background */
   color: white; /* Ensure text and icons are visible */
+  padding-right: 350px;
 }
 
 .toolbar {

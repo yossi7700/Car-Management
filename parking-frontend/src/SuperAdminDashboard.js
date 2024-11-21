@@ -134,10 +134,7 @@ const SuperAdminDashboard = () => {
             <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" style={{ flexGrow: 1 }}>
-              Parking Management
-            </Typography>
-            <img src={logo} alt="Logo" className="logo-appbar" />
+          ==
           </Toolbar>
         </AppBar>
       </div>

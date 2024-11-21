@@ -9,6 +9,7 @@
   position: relative; /* Position for overlaying elements */
 }
 
+
 /* AppBar styled to blend into the top section */
 .AppBar {
   background: transparent !important; /* Ensure no background color */
@@ -40,5 +41,9 @@
 
   .logo-appbar {
     width: 30px;
+  }
+
+  .AppBar{
+    justify-content: left;
   }
 }

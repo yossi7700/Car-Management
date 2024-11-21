@@ -33,19 +33,22 @@ function Layout() {
       {/* Top Section with Cover Photo */}
       <div className="top-section">
         <AppBar position="static" className="AppBar">
-          <Toolbar style={{ width: '100%' }}>
-            <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setDrawerOpen(true)}>
+          <Toolbar>
+            {/* Menu Button (Left) */}
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={() => setDrawerOpen(true)}
+            >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" style={{ flexGrow: 1 }}>
-              Parking Management
-            </Typography>
-            <img src={logo} alt="Logo" className="logo-appbar" />
-          </Toolbar>
+
+                      </Toolbar>
         </AppBar>
       </div>
 
-      {/* Drawer for navigation */}
+      {/* Drawer for Navigation */}
       <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <List>
           {menuItems.map((item, index) => (
